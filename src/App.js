@@ -1,3 +1,12 @@
+import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NavBar from './NavBar';
+import AboutPage from './pages/AboutPage';
+import DashboardPage from './pages/DashboardPage';
+import HistoryPage from './pages/HistoryPage';
+import HomePage from './pages/HomePage';
+import SettingsPage from './pages/SettingsPage';
+
 import { WagmiConfig, createConfig, configureChains, mainnet } from 'wagmi'
 import { useAccount, useConnect, useDisconnect, useBalance } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
@@ -72,9 +81,22 @@ function Profile() {
 
 function App() {
   return (
-    <WagmiConfig config={config}>
-      <Profile/>
-    </WagmiConfig>
+    <BrowserRouter>
+      <div className='App'>
+        <NavBar />
+        <Routes>
+            <Route path="/" element = {<HomePage />} />
+            <Route path="/dashboard" element = {<DashboardPage />} />
+            <Route path="/history" element = {<HistoryPage />} />
+            <Route path="/settings" element = {<SettingsPage />} />
+            <Route path="/about" element = {<AboutPage />} />
+        </Routes>
+
+        <WagmiConfig config={config}>
+          <Profile/>
+        </WagmiConfig>
+      </div>
+    </BrowserRouter>
   )
 }
 
