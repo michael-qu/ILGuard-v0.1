@@ -2,19 +2,20 @@ import { Link } from 'react-router-dom';
 
 const NavBar = () => {
     return (
-        <nav>
-            <ul>
-                <li>
-                    <Link to="/dashboard">Dashboard</Link>
+        <nav className="navbar navbar-dark bg-dark navbar-expand-sm">
+            <span className="navbar-brand">ILGuard</span>
+            <ul className="nav navbar-nav">
+                <li className="nav-item">
+                    <Link to="/dashboard" className="nav-link">Dashboard</Link>
                 </li>
-                <li>
-                    <Link to="/history">History</Link>
+                <li className="nav-item">
+                    <Link to="/history" className="nav-link">History</Link>
                 </li>
-                <li>
-                    <Link to="/settings">Settings</Link>
+                <li className="nav-item">
+                    <Link to="/settings" className="nav-link">Settings</Link>
                 </li>
-                <li>
-                    <Link to="/about">About</Link>
+                <li className="nav-item">
+                    <Link to="/about" className="nav-link">About</Link>
                 </li>
 
             </ul>
