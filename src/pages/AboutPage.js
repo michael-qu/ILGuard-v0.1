@@ -1,6 +1,6 @@
 const AboutPage = () => {
     return (
-        <div>
+        <div className="flex justify-center">
             <h2>About</h2>
             <h2>ILGUARD v0.3</h2>
             <p> 

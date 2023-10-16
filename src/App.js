@@ -12,6 +12,7 @@ import { useAccount, useConnect, useDisconnect, useBalance } from 'wagmi'
 import { InjectedConnector } from 'wagmi/connectors/injected'
 import { jsonRpcProvider } from 'wagmi/providers/jsonRpc';
 import 'bootstrap/dist/css/bootstrap.min.css'; // import Bootstrap CSS
+import { appConstants } from './shared/constants';
 
 const { chains, publicClient } = configureChains(
   [mainnet],
@@ -82,14 +83,24 @@ function Profile() {
 function App() {
   return (
     <BrowserRouter>
-      <div className='App'>
+      <div className="relative min-h-screen flex bg-black">
         <NavBar />
+        {/* <div className="w-64 p-3">
+          <div className="flex items-center">
+            <span className="text-limegreen text-3xl font-extrabold">IL</span>
+            <span className="text-white text-3xl font-extrabold">GUARD</span>
+          </div> */}
+          
+        {/* </div> */}
+        {/* <div className="flex-1 p-10 text-2xl font-bold justify-center">
+          Contents go here
+        </div> */}
         <Routes>
-            <Route path="/" element = {<HomePage />} />
-            <Route path="/dashboard" element = {<DashboardPage />} />
-            <Route path="/history" element = {<HistoryPage />} />
-            <Route path="/settings" element = {<SettingsPage />} />
-            <Route path="/about" element = {<AboutPage />} />
+            <Route path={appConstants.homeRoute} element = {<HomePage />} />
+            <Route path={appConstants.dashboardRoute} element = {<DashboardPage />} />
+            <Route path={appConstants.historyRoute} element = {<HistoryPage />} />
+            <Route path={appConstants.settingsRoute} element = {<SettingsPage />} />
+            <Route path={appConstants.aboutRoute} element = {<AboutPage />} />
         </Routes>
 
         <WagmiConfig config={config}>
